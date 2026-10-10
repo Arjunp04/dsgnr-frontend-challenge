@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+@theme {
+  /* Font */
+  --font-jarkarta: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Colors */
+  --color-dark: #101010;
+  --color-yellow: #fec00a;
+  --color-hero-yellow: #fdca09;
+  --color-blue: #4589f7;
+
+  /* Font sizes */
+  --text-heading: 6.25rem; /* 100px */
+  --text-subheading: 2.75rem; /* 44px */
+  --text-title: 2.125rem; /* 34px */
+  --text-large: 1.75rem; /* 28px */
+
+  /* Page ki max width */
+  --container-page: 90rem; /* 1440px, max-w-page */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: white;
+    color: var(--color-dark);
+    font-family: var(--font-jarkarta);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-yellow);
+    outline-offset: 4px;
+  }
+}
+
+@utility page-container {
+  @apply mx-auto max-w-page px-6;
+}
