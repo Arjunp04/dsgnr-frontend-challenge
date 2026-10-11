@@ -7,7 +7,7 @@ import mouseIcon from "../assets/mouse.svg";
 const Hero = () => {
   return (
     <section>
-      <div className="relative min-h-120 overflow-hidden bg-hero-yellow md:min-h-155 lg:min-h-screen">
+     <div className="relative min-h-120 overflow-hidden bg-hero-yellow md:min-h-155 lg:min-h-176 xl:min-h-184">
         <div className="pointer-events-none absolute inset-0 mx-auto max-w-page">
           <img
             src={shape1}
