@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { navLinks } from "../data/content.js";
+import { navLinks } from "../data/content";
 import logo from "../assets/logo.svg";
 import menuIcon from "../assets/hamburger.svg";
 

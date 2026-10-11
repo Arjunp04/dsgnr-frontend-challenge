@@ -33,7 +33,7 @@ const ContactForm = () => {
 
             <Button
               type="submit"
-              className="mt-2 w-full py-5 text-xl lg:text-large font-medium"
+              className="mt-2 w-full py-5 text-xl font-medium lg:text-large"
             >
               {contactForm.submitLabel}
             </Button>
