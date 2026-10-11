@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { navLinks } from "../data/content";
+import { navLinks } from "../data/content.js";
 import logo from "../assets/logo.svg";
-import hamburgerIcon from "../assets/hamburger.svg";
+import menuIcon from "../assets/hamburger.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +38,7 @@ const Header = () => {
           aria-expanded={isMenuOpen}
           aria-controls="site-menu"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="flex items-center justify-center transition-opacity hover:opacity-80 cursor-pointer"
+          className="flex cursor-pointer items-center justify-center transition-opacity hover:opacity-80"
         >
           {isMenuOpen ? (
             <svg
@@ -52,7 +52,7 @@ const Header = () => {
               <path d="M5 5l14 14M19 5L5 19" />
             </svg>
           ) : (
-            <img src={hamburgerIcon} alt="" className="w-8 lg:w-12" />
+            <img src={menuIcon} alt="menu icon" className="w-8 lg:w-12" />
           )}
         </button>
       </div>
