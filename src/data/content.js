@@ -32,13 +32,26 @@ export const hero = {
 export const contactForm = {
   heading: "We'd love to hear from you",
   fields: [
-    { name: "name", label: "Name", placeholder: "Name*", type: "text" },
-    { name: "email", label: "Email", placeholder: "Email*", type: "email" },
+    {
+      name: "name",
+      label: "Name",
+      placeholder: "Name*",
+      type: "text",
+      autoComplete: "name",
+    },
+    {
+      name: "email",
+      label: "Email",
+      placeholder: "Email*",
+      type: "email",
+      autoComplete: "email",
+    },
     {
       name: "website",
       label: "Website URL",
       placeholder: "Website URL*",
       type: "url",
+      autoComplete: "url",
     },
     {
       name: "details",
@@ -47,6 +60,15 @@ export const contactForm = {
       type: "textarea",
     },
   ],
+  errors: {
+    nameRequired: "Please enter your name.",
+    emailRequired: "Please enter your email.",
+    emailInvalid: "Please enter a valid email address.",
+    websiteRequired: "Please enter your website URL.",
+    websiteInvalid: "Please enter a valid URL, like https://example.com",
+    detailsRequired: "Please tell us about your project.",
+    detailsShort: "Project details must be at least 20 characters.",
+  },
   submitLabel: "Send Proposal",
   sendingLabel: "Sending...",
   successMessage: "Thanks! Your proposal has been sent.",

@@ -14,9 +14,9 @@ const CtaBanner = () => {
             xs:px-8 xs:py-10
             sm:py-12
             md:gap-4
-            lg:h-40 lg:flex-row lg:items-center
-            lg:gap-6 lg:pr-8 lg:pl-0
-            xl:h-48 xl:gap-8 xl:pr-10
+            lg:h-44 lg:flex-row lg:items-center
+            lg:gap-20 lg:pr-8 lg:pl-0
+            xl:h-56 xl:gap-24 xl:pr-10
           "
         >
           {/* Logo */}
@@ -37,8 +37,8 @@ const CtaBanner = () => {
               relative z-10 flex flex-col items-start gap-6
               md:flex-col
               lg:min-w-0 lg:flex-1 lg:flex-row
-              lg:items-center lg:gap-6
-              xl:gap-8
+              lg:items-center  lg:gap-14
+              xl:gap-20
             "
           >
             <h2
@@ -48,7 +48,7 @@ const CtaBanner = () => {
                 sm:max-w-none sm:text-3xl
                 md:text-2xl
                 lg:max-w-none lg:shrink-0 lg:text-3xl
-                xl:text-subheading
+                xl:text-4xl
               "
             >
               {cta.headingLines.map((line) => (
@@ -62,8 +62,7 @@ const CtaBanner = () => {
               href={cta.buttonHref}
               className="
                 shrink-0 whitespace-nowrap px-6 py-2
-                text-xl font-semibold
-                lg:text-lg
+                text-lg font-semibold
                 xl:text-2xl
               "
             >
@@ -80,11 +79,11 @@ const CtaBanner = () => {
             className="
               pointer-events-none absolute right-3 bottom-0
               hidden w-20 xs:block
-              xs:w-56
+              xs:w-40
               sm:w-68
-              md:w-64
-              lg:right-4 lg:w-56
-              xl:right-6 xl:w-64
+              md:w-80
+              lg:right-4 lg:w-60
+              xl:right-6 xl:w-72
             "
           />
         </div>

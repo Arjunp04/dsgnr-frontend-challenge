@@ -3,7 +3,7 @@ import { brandLogos } from "../data/content";
 
 const BrandLogos = () => {
   return (
-    <section aria-labelledby="brand-logos-heading" className="pt-10 pb-28">
+    <section aria-labelledby="brand-logos-heading" className="pt-0 sm:pt-10 pb-28">
       <div className="page-container">
         <h2
           id="brand-logos-heading"

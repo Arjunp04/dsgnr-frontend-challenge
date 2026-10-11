@@ -4,7 +4,6 @@ const Office = () => {
   const {
     heading,
     image,
-    imageAlt,
     city,
     addressLines,
     email,
@@ -16,7 +15,7 @@ const Office = () => {
   return (
     <section
       aria-labelledby="office-heading"
-      className="py-10"
+      className="py-4 sm:py-10"
     >
       <div className="page-container">
         <h2 id="office-heading" className="text-center text-subheading text-2xl font-bold xs:text-4xl lg:leading-13">
@@ -26,7 +25,7 @@ const Office = () => {
         <div className="relative mt-10 md:mt-14 xl:mt-20">
           <img
             src={image}
-            alt={imageAlt}
+            alt="office room image"
             width="1274"
             height="562"
             loading="lazy"

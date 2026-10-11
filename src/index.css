@@ -11,6 +11,7 @@
   --color-blue: #4589f7;
   --color-peach: #fff1e0; 
   --color-divider: #e5e5e5; 
+  --color-error: #d92d20;
 
   /* Font sizes */
   --text-heading: 6.25rem; /* 100px */
@@ -40,6 +41,7 @@
     background-color: white;
     color: var(--color-dark);
     font-family: var(--font-sans);
+    cursor: default;
   }
 
   :focus-visible {

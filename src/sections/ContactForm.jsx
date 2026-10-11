@@ -1,16 +1,79 @@
+import { useState } from "react";
 import Button from "../components/Button";
 import FormField from "../components/FormField";
 import { contactForm } from "../data/content";
+import { validateAll } from "../utils/validators";
+import { sendProposal } from "../services/sendProposal";
 import contactImg from "../assets/contactImg.png";
 
+const emptyValues = { name: "", email: "", website: "", details: "" };
+const noneTouched = {
+  name: false,
+  email: false,
+  website: false,
+  details: false,
+};
+
 const ContactForm = () => {
+  const [values, setValues] = useState(emptyValues);
+  const [touched, setTouched] = useState(noneTouched);
+  const [status, setStatus] = useState("idle"); // idle, sending, success, error
+
+  // errors state mein nahi rakhe, har render par values se nikalte hain
+  const errors = validateAll(values);
+  const isSending = status === "sending";
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setValues((current) => ({ ...current, [name]: value }));
+
+    // dobara type kare to purana success ya error message hata do
+    if (status === "success" || status === "error") {
+      setStatus("idle");
+    }
+  };
+
+  const handleBlur = (event) => {
+    const { name } = event.target;
+    setTouched((current) => ({ ...current, [name]: true }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (isSending) return;
+
+    // submit par saare fields touched maan lo, taaki saare errors dikhein
+    setTouched({ name: true, email: true, website: true, details: true });
+
+    const firstErrorField = contactForm.fields.find(
+      (field) => errors[field.name],
+    );
+
+    if (firstErrorField) {
+      event.currentTarget.elements[firstErrorField.name].focus();
+      return;
+    }
+
+    setStatus("sending");
+    const isSent = await sendProposal(values);
+
+    if (isSent) {
+      setValues(emptyValues);
+      setTouched(noneTouched);
+      setStatus("success");
+    } else {
+      // values ko haath nahi lagaya, user ka likha hua bacha rehta hai
+      setStatus("error");
+    }
+  };
+
   return (
     <section
       id="contact-form"
-      className="page-container pt-10 pb-16 md:pt-12 md:pb-20 xl:pt-14 xl:pb-28"
+      className="page-container pt-6 pb-16 md:pt-12 md:pb-20 xl:pt-14 xl:pb-28"
     >
       <div className="grid gap-10 lg:grid-cols-[5fr_6fr] lg:gap-12 xl:gap-32">
-        <div className="relative h-80 bg-peach xs:h-120 md:h-112 lg:h-auto">
+        <div className="relative h-80 bg-peach xs:h-96 md:h-100 lg:h-auto">
           <img
             src={contactImg}
             alt=""
@@ -19,24 +82,45 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <h2 className="max-w-[10em] text-2xl text-subheading font-bold xs:text-4xl sm:max-w-none lg:ml-auto lg:max-w-[10em] lg:text-right lg:leading-13">
+          <h2 className="max-w-[10em] text-subheading xs:text-4xl sm:max-w-none lg:ml-auto lg:max-w-[10em] lg:text-right lg:leading-13">
             {contactForm.heading}
           </h2>
 
           <form
+            onSubmit={handleSubmit}
             className="mt-8 flex flex-col gap-4 md:mt-10 md:gap-5 xl:mt-12 xl:gap-7"
             noValidate
           >
             {contactForm.fields.map((field) => (
-              <FormField key={field.name} {...field} />
+              <FormField
+                key={field.name}
+                {...field}
+                value={values[field.name]}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched[field.name] ? errors[field.name] : ""}
+              />
             ))}
 
             <Button
               type="submit"
+              disabled={isSending}
               className="mt-2 w-full py-5 text-xl font-medium lg:text-large"
             >
-              {contactForm.submitLabel}
+              {isSending ? contactForm.sendingLabel : contactForm.submitLabel}
             </Button>
+
+            {status === "success" && (
+              <p role="status" className="text-lg font-medium">
+                {contactForm.successMessage}
+              </p>
+            )}
+
+            {status === "error" && (
+              <p role="alert" className="text-lg font-medium text-error">
+                {contactForm.failureMessage}
+              </p>
+            )}
           </form>
         </div>
       </div>
