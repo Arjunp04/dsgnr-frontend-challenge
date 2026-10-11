@@ -1,9 +1,14 @@
+import Header from "./sections/Header";
+import Hero from "./sections/Hero";
 import Footer from "./sections/Footer";
 
 const App = () => {
   return (
     <>
-      <main />
+      <Header />
+      <main>
+        <Hero />
+      </main>
       <Footer />
     </>
   );

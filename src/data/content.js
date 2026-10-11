@@ -9,6 +9,9 @@ import airbnb from "../assets/brands/airbnb.svg";
 import facebook from "../assets/facebook.svg";
 import twitter from "../assets/twitter.svg";
 import googlePlus from "../assets/google.svg";
+import handOne from "../assets/hero/hand1.png";
+import handTwo from "../assets/hero/hand2.png";
+import handThree from "../assets/hero/hand3.png";
 
 export const navLinks = [
   { label: "Intro", href: "#" },
@@ -20,6 +23,9 @@ export const navLinks = [
 
 export const hero = {
   heading: "We would love to hear from you.",
+  hands: [handOne, handTwo, handThree],
+  scrollLabel: "Scroll to contact form",
+  scrollTarget: "#contact-form",
 };
 
 export const contactForm = {

@@ -21,14 +21,17 @@
 
   --breakpoint-*: initial;
   --breakpoint-xs: 23.4375rem; /* 375px */
+  --breakpoint-sm: 40.5rem; /* 648px */
   --breakpoint-md: 48rem; /* 768px */
   --breakpoint-lg: 64rem; /* 1024px */
   --breakpoint-xl: 90rem; /* 1440px */
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
@@ -44,9 +47,9 @@
 }
 
 @utility page-container {
-  @apply mx-auto max-w-page px-6 md:px-10 lg:px-16 xl:px-24;
+  @apply mx-auto max-w-page px-6 md:px-10 lg:px-14;
 }
 
 @utility text-body {
-  @apply text-base xs:text-lg md:text-xl lg:text-xl xl:text-2xl;
+  @apply text-base xs:text-lg md:text-xl xl:text-2xl;
 }

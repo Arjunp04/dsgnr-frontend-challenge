@@ -28,7 +28,7 @@ const Footer = () => {
 
           <nav
             aria-label="Footer"
-            className="grid gap-8 xs:grid-cols-2 lg:mr-20 lg:gap-16 xl:mr-40 xl:gap-20"
+            className="grid gap-8 xs:grid-cols-2 lg:mr-20 lg:gap-16 xl:mr-28 xl:gap-20"
           >
             {footer.columns.map((column) => (
               <FooterLinkColumn
