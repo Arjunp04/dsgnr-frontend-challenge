@@ -19,7 +19,7 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <h2 className="max-w-[10em] text-2xl text-subheading font-bold xs:text-4xl sm:max-w-none lg:ml-auto lg:max-w-[10em] lg:text-right lg:leading-11">
+          <h2 className="max-w-[10em] text-2xl text-subheading font-bold xs:text-4xl sm:max-w-none lg:ml-auto lg:max-w-[10em] lg:text-right lg:leading-13">
             {contactForm.heading}
           </h2>
 
@@ -33,7 +33,7 @@ const ContactForm = () => {
 
             <Button
               type="submit"
-              className="mt-2 w-full py-5 text-xl lg:text-large"
+              className="mt-2 w-full py-5 text-xl lg:text-large font-medium"
             >
               {contactForm.submitLabel}
             </Button>

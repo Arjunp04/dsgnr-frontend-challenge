@@ -1,13 +1,19 @@
-const Button = ({ children, type = "button", className = "", ...props }) => {
-  return (
-    <button
-      type={type}
-      className={`cursor-pointer bg-dark text-lg font-medium text-white transition-colors duration-500 hover:bg-yellow hover:text-dark ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-
-export default Button;
+const Button = ({ children, href, type = "button", className = "", ...props }) => {
+    const styles = `inline-flex cursor-pointer items-center justify-center bg-dark text-white transition-colors hover:bg-dark/80 ${className}`;
+  
+    if (href) {
+      return (
+        <a href={href} className={styles} {...props}>
+          {children}
+        </a>
+      );
+    }
+  
+    return (
+      <button type={type} className={styles} {...props}>
+        {children}
+      </button>
+    );
+  };
+  
+  export default Button;

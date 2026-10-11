@@ -91,9 +91,9 @@ export const brandLogos = {
 };
 
 export const cta = {
-  heading: "Grow Your Business. Build Great Products.",
+  headingLines: ["Grow Your Business.", "Build Great Products."],
   buttonLabel: "Book a free call",
-  buttonHref: "#",
+  buttonHref: "#contact-form",
 };
 
 export const footer = {
