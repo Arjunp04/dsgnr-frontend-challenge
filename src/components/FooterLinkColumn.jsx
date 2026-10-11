@@ -1,13 +1,13 @@
 const FooterLinkColumn = ({ title, links }) => {
   return (
     <div>
-      <h2 className="text-lg font-bold">{title}</h2>
-      <ul className="mt-6 flex flex-col gap-3 lg:gap-2">
+      <h2 className="text-body font-bold">{title}</h2>
+      <ul className="mt-4 flex flex-col gap-2 xl:mt-6 xl:gap-3">
         {links.map((link) => (
           <li key={link.label}>
             <a
               href={link.href}
-              className="text-lg font-medium transition-colors hover:text-yellow"
+              className="text-body font-medium transition-colors hover:text-yellow"
             >
               {link.label}
             </a>

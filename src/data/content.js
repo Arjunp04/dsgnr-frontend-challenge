@@ -108,6 +108,6 @@ export const bottomBar = {
   socials: [
     { label: "Twitter", href: "#", icon: twitter },
     { label: "Facebook", href: "#", icon: facebook },
-    { label: "Google Plus", href: "#", icon: googlePlus },
+    { label: "GooglePlus", href: "#", icon: googlePlus },
   ],
 };

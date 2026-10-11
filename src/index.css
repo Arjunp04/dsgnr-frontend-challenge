@@ -2,12 +2,12 @@
 
 @theme {
   /* Font */
-  --font-jarkarta: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
   /* Colors */
   --color-dark: #101010;
   --color-yellow: #fec00a;
-  --color-hero-yellow: #fdca09;
+  --color-hero-yellow: #fdca09; 
   --color-blue: #4589f7;
 
   /* Font sizes */
@@ -18,6 +18,12 @@
 
   /* Page ki max width */
   --container-page: 90rem; /* 1440px, max-w-page */
+
+  --breakpoint-*: initial;
+  --breakpoint-xs: 23.4375rem; /* 375px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 90rem; /* 1440px */
 }
 
 @layer base {
@@ -28,7 +34,7 @@
   body {
     background-color: white;
     color: var(--color-dark);
-    font-family: var(--font-jarkarta);
+    font-family: var(--font-sans);
   }
 
   :focus-visible {
@@ -38,5 +44,9 @@
 }
 
 @utility page-container {
-  @apply mx-auto max-w-page px-6;
+  @apply mx-auto max-w-page px-6 md:px-10 lg:px-16 xl:px-24;
+}
+
+@utility text-body {
+  @apply text-base xs:text-lg md:text-xl lg:text-xl xl:text-2xl;
 }
