@@ -1,5 +1,5 @@
 const baseFieldStyles =
-  "block w-full border-2 border-dark/60 bg-white px-4 text-xl lg:text-large font-medium transition-colors placeholder:text-dark hover:border-yellow md:px-8";
+  "block w-full border-2 border-dark/60 bg-white px-4 text-xl lg:text-large font-medium transition-colors placeholder:text-dark hover:border-yellow md:px-8 focus-visible:outline-offset-0";
 
 const FormField = ({ name, label, placeholder, type }) => {
   return (
@@ -13,7 +13,7 @@ const FormField = ({ name, label, placeholder, type }) => {
           id={name}
           name={name}
           placeholder={placeholder}
-          className={`${baseFieldStyles} resize-none pt-4 h-56`}
+          className={`${baseFieldStyles} h-56 resize-none pt-4`}
         />
       ) : (
         <input

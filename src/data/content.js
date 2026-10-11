@@ -12,6 +12,7 @@ import googlePlus from "../assets/google.svg";
 import handOne from "../assets/hero/hand1.png";
 import handTwo from "../assets/hero/hand2.png";
 import handThree from "../assets/hero/hand3.png";
+import officeImage from "../assets/office.png";
 
 export const navLinks = [
   { label: "Intro", href: "#" },
@@ -52,13 +53,19 @@ export const contactForm = {
   failureMessage: "Something went wrong. Please try again.",
 };
 
+const officeAddress = ["7626 W. 8th St.", "Massapequa, NY 11758"];
+
 export const office = {
   heading: "Come stop by our office sometime",
+  image: officeImage,
   city: "New York, USA",
-  address: "Street address, City, State ZIP",
+  addressLines: officeAddress,
   email: "info@dsgnr.com",
-  phone: "+1 000 000 0000",
+  phone: "(543)890 98",
   directionsLabel: "Get Directions",
+  mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    officeAddress.join(", "),
+  )}`,
 };
 
 export const stats = [
