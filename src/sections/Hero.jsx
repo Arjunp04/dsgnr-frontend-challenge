@@ -54,7 +54,7 @@ const Hero = () => {
         <img
           src={mouseIcon}
           alt=""
-          className="h-9 w-auto motion-safe:transition-transform motion-safe:hover:translate-y-1 xs:h-10 xl:h-12"
+          className="h-9 w-auto motion-safe:transition-transform motion-safe:hover:translate-y-1 xs:h-12 xl:h-14"
         />
       </a>
     </section>
