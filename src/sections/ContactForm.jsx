@@ -19,7 +19,7 @@ const ContactForm = () => {
   const [touched, setTouched] = useState(noneTouched);
   const [status, setStatus] = useState("idle"); // idle, sending, success, error
 
-  // errors state mein nahi rakhe, har render par values se nikalte hain
+  // errors are not kept in state, they are worked out from values on every render
   const errors = validateAll(values);
   const isSending = status === "sending";
 
@@ -27,7 +27,7 @@ const ContactForm = () => {
     const { name, value } = event.target;
     setValues((current) => ({ ...current, [name]: value }));
 
-    // dobara type kare to purana success ya error message hata do
+    // remove the old success or error message when the user types again
     if (status === "success" || status === "error") {
       setStatus("idle");
     }
@@ -42,13 +42,14 @@ const ContactForm = () => {
     event.preventDefault();
     if (isSending) return;
 
-    // submit par saare fields touched maan lo, taaki saare errors dikhein
+    // mark all fields as touched on submit, so every error is shown
     setTouched({ name: true, email: true, website: true, details: true });
 
     const firstErrorField = contactForm.fields.find(
       (field) => errors[field.name],
     );
 
+    // move focus to the first invalid field and stop
     if (firstErrorField) {
       event.currentTarget.elements[firstErrorField.name].focus();
       return;
@@ -62,7 +63,7 @@ const ContactForm = () => {
       setTouched(noneTouched);
       setStatus("success");
     } else {
-      // values ko haath nahi lagaya, user ka likha hua bacha rehta hai
+      // values are not changed, so the user keeps what they typed
       setStatus("error");
     }
   };
@@ -82,7 +83,7 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <h2 className="max-w-[10em] text-subheading xs:text-4xl sm:max-w-none lg:ml-auto lg:max-w-[10em] lg:text-right lg:leading-13">
+          <h2 className="max-w-[10em] text-2xl text-subheading font-bold xs:text-4xl sm:max-w-none lg:ml-auto lg:max-w-[10em] lg:text-right lg:leading-13">
             {contactForm.heading}
           </h2>
 

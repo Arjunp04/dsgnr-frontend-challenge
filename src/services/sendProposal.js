@@ -8,7 +8,7 @@ export const sendProposal = async (values) => {
       body: JSON.stringify(values),
     });
 
-    // fetch 404 ya 500 par reject nahi karta, isliye status khud check karna padta hai
+    // fetch does not reject on 404 or 500, so check the status ourselves
     if (!response.ok) {
       throw new Error(`Request failed with status ${response.status}`);
     }

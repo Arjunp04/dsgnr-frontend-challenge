@@ -9,7 +9,7 @@ const isValidUrl = (text) => {
   try {
     const url = new URL(text);
     const isWebLink = url.protocol === "http:" || url.protocol === "https:";
-    // new URL("abc:def") bhi valid maan leta hai, isliye dot wala check bhi
+    // new URL("abc:def") also counts as valid, so the dot check is needed
     return isWebLink && url.hostname.includes(".");
   } catch {
     return false;
