@@ -64,7 +64,6 @@ src/
   data/          content.js
   services/      sendProposal.js (API request)
   utils/         validators.js (form rules)
-  styles/        index.css (theme and base styles)
 ```
 
 ## Breakpoints
